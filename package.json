@@ -9,7 +9,7 @@
     "install": "npm run install-server && npm run install client",
     "server": "npm run watch --prefix server",
     "client": "npm start --prefix client",
-    "watch": "concurrently 'npm:cluster' 'npm:client'",
+    "watch": "concurrently 'npm:server' 'npm:client'",
     "test": "npm run cluster --prefix server && npm test --prefix client"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "csv": "^6.1.0",
-    "csv-parse": "^5.1.0"
+    "csv-parse": "^5.1.0",
+    "mongoose": "^6.3.6"
   }
 }
