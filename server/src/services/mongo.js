@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-const MONGO_URL = 'mongodb+srv://<name>:<passoword>@cluster0.g4r8jmh.mongodb.net/<dbName>?retryWrites=true&w=majority'
+require('dotenv').config()
+
+const MONGO_URL = process.env.MONGO_URL
 
 mongoose.connection.once('open', () => {
     console.log('MongoDB connection ready!')
@@ -14,6 +16,11 @@ async function mongoConnect() {
     await mongoose.connect(MONGO_URL)
 }
 
+async function mongoDisconnect() {
+    await mongoose.disconnect()
+}
+
 module.exports = {
     mongoConnect,
+    mongoDisconnect
 }
